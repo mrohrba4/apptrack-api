@@ -10,7 +10,7 @@ class Entry(models.Model):
     # "link" field
     link = models.URLField()
     # "date applied" field
-    date_applied = models.DateInput()
+    date_applied = models.CharField(max_length=100)
     # "status" field
     status = models.CharField(max_length=100)
     # "notes" field
