@@ -1,5 +1,5 @@
 #!/bin/bash
-curl "http://localhost:8000/entries" \
+curl "http://localhost:8000/entries/" \
   --include \
   --request POST \
   --header "Content-Type: application/json" \

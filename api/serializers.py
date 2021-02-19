@@ -7,7 +7,7 @@ from .models.user import User
 class EntrySerializer(serializers.ModelSerializer):
     class Meta:
         model = Entry
-        fields = ('id', 'company', 'position', 'link', 'date_applied', 'status', 'notes')
+        fields = ('id', 'company', 'position', 'link', 'date_applied', 'status', 'notes', 'creator')
 
 class UserSerializer(serializers.ModelSerializer):
     # This model serializer will be used for User creation

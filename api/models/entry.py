@@ -8,7 +8,7 @@ class Entry(models.Model):
     # "position" field
     position = models.CharField(max_length=100)
     # "link" field
-    link = models.URLField()
+    link = models.CharField(max_length=100)
     # "date applied" field
     date_applied = models.CharField(max_length=100)
     # "status" field

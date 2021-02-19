@@ -22,7 +22,7 @@ class Entries(generics.ListCreateAPIView):
     # GET request
     def get(self, request):
         """'Index Entries request'"""
-        entries = Entry.objects.filter(owner=request.user.id)
+        entries = Entry.objects.filter(creator=request.user.id)
         data = EntrySerializer(entries, many=True).data
         return Response({ 'entries': data })
 
