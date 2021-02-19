@@ -50,7 +50,7 @@ class EntryDetail(generics.RetrieveUpdateDestroyAPIView):
         # Locate the entry to show
         entry = get_object_or_404(Entry, pk=pk)
         # Only show owned Entries
-        if not request.user.id == entry.owner.id:
+        if not request.user.id == entry.creator.id:
             raise PermissionDenied('Unauthorized, you do not own this entry')
 
         data = EntrySerializer(entry).data
@@ -61,7 +61,7 @@ class EntryDetail(generics.RetrieveUpdateDestroyAPIView):
         # Locate entry to delete
         entry = get_object_or_404(Entry, pk=pk)
         # check if requestor has permission.
-        if not request.user.id == entry.owner.id:
+        if not request.user.id == entry.creator.id:
             raise PermissionDenied('Unauthorized, you do not own this entry.')
         # only delete if user owns the entry
         entry.delete()
@@ -74,7 +74,7 @@ class EntryDetail(generics.RetrieveUpdateDestroyAPIView):
 
         entry = get_object_or_404(Entry, pk=pk)
 
-        if not request.user.id == entry.owner.id:
+        if not request.user.id == entry.creator.id:
             raise PermissionDenied('Unauthorized, you do not own this entry!')
 
         request.data['entry']['creator'] = request.user.id
